@@ -4,6 +4,22 @@
     "project_name": "overUnder",
     "target": "v5",
     "templates": {
+      "autoSelect": {
+        "location": "/Users/urjith/Library/Application Support/PROS/templates/autoSelect@2.1.4",
+        "metadata": {
+          "origin": "local"
+        },
+        "name": "autoSelect",
+        "py/object": "pros.conductor.templates.local_template.LocalTemplate",
+        "supported_kernels": "^3.2.1",
+        "system_files": [
+          "include\\autoSelect\\selection.h",
+          "firmware\\autoSelect.a"
+        ],
+        "target": "v5",
+        "user_files": [],
+        "version": "2.1.4"
+      },
       "kernel": {
         "location": "C:\\Users\\s119046\\AppData\\Roaming\\PROS\\templates\\kernel@3.8.0",
         "metadata": {
@@ -310,7 +326,8 @@
     },
     "upload_options": {
       "description": "Mavbotics' code for VEX Over Under",
-      "icon": "power"
+      "icon": "power",
+      "slot": 8
     }
   }
 }
