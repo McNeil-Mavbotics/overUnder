@@ -59,19 +59,24 @@ void autonomous()
 	switch (selector::auton)
 	{
 	case -2:
-		// Blue 2
+		// Blue Back
+		drivetrain->driveToPoint({1_ft, 1_ft});
 		break;
 	case -1:
-		// Blue 1
+		// Blue Front
+		drivetrain->driveToPoint({1_ft, 1_ft});
 		break;
 	case 0:
 		// Skills
+		drivetrain->driveToPoint({1_ft, 1_ft});
 		break;
 	case 1:
-		// Red 1
+		// Red Front
+		drivetrain->driveToPoint({1_ft, 1_ft});
 		break;
 	case 2:
-		// Red 2
+		// Red Back
+		drivetrain->driveToPoint({1_ft, 1_ft});
 		break;
 	}
 }
