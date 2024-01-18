@@ -44,6 +44,33 @@ void competition_initialize() {}
  * will be stopped. Re-enabling the robot will restart the task, not re-start it
  * from where it left off.
  */
+
+void firstAutonomous()
+{
+	// drivetrain->moveDistance(1_ft);
+	// drivetrain->turnAngle(90_deg);
+	// drivetrain->moveDistance(1_ft);
+	// drivetrain->turnAngle(-90_deg);
+	// drivetrain->moveDistance(1_ft);
+	// intake.moveVelocity(-200);
+	trapezoidProfile->generatePath(
+		{{0_ft, 0_ft, 0_deg}, {1_ft, 4_ft, 0_deg}}, "A");
+	trapezoidProfile->setTarget("A");
+	trapezoidProfile->waitUntilSettled();
+	trapezoidProfile->removePath("A");
+	intake.moveRelative(360, -200);
+	trapezoidProfile->generatePath(
+		{{1_ft, 4_ft, 0_deg}, {1_ft, 2_ft, 0_deg}}, "B");
+	trapezoidProfile->setTarget("B");
+	trapezoidProfile->waitUntilSettled();
+	trapezoidProfile->removePath("B");
+	trapezoidProfile->generatePath(
+		{{1_ft, 2_ft, 0_deg}, {3_ft, 4_ft, 111.8_deg}}, "C");
+	trapezoidProfile->setTarget("C");
+	trapezoidProfile->waitUntilSettled();
+	trapezoidProfile->removePath("C");
+}
+
 void autonomous()
 {
 	// intakein(800)
@@ -60,23 +87,23 @@ void autonomous()
 	{
 	case -2:
 		// Blue Back
-		drivetrain->driveToPoint({1_ft, 1_ft});
+		firstAutonomous();
 		break;
 	case -1:
 		// Blue Front
-		drivetrain->driveToPoint({1_ft, 1_ft});
+		firstAutonomous();
 		break;
 	case 0:
 		// Skills
-		drivetrain->driveToPoint({1_ft, 1_ft});
+		firstAutonomous();
 		break;
 	case 1:
 		// Red Front
-		drivetrain->driveToPoint({1_ft, 1_ft});
+		firstAutonomous();
 		break;
 	case 2:
 		// Red Back
-		drivetrain->driveToPoint({1_ft, 1_ft});
+		firstAutonomous();
 		break;
 	}
 }
@@ -128,6 +155,18 @@ void opcontrol()
 		else
 		{
 			catapult.moveVoltage(0);
+		}
+
+		// Pneumatics
+		if (master.operator[](extendArms).changedToPressed())
+		{
+			left_arm.set_value(true);
+			right_arm.set_value(true);
+		}
+		else if (master.operator[](retractArms).changedToReleased())
+		{
+			left_arm.set_value(false);
+			right_arm.set_value(false);
 		}
 
 		// Delay
