@@ -165,7 +165,8 @@ void autonomous()
  */
 void opcontrol()
 {
-	drivetrain->setMaxVelocity(200);
+	catapult.setBrakeMode(AbstractMotor::brakeMode::hold);
+
 	while (true)
 	{
 		// Drive

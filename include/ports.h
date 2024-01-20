@@ -5,7 +5,7 @@ Controller master;
 
 // Motors and Motor Groups
 Motor catapult_first(10, false, AbstractMotor::gearset::green, AbstractMotor::encoderUnits::degrees);
-Motor catapult_second(11, true, AbstractMotor::gearset::blue, AbstractMotor::encoderUnits::degrees);
+Motor catapult_second(11, true, AbstractMotor::gearset::green, AbstractMotor::encoderUnits::degrees);
 Motor intake(13, false, AbstractMotor::gearset::green, AbstractMotor::encoderUnits::degrees);
 MotorGroup catapult({catapult_first, catapult_second});
 
