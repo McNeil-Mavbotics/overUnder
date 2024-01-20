@@ -45,7 +45,7 @@ void competition_initialize() {}
  * from where it left off.
  */
 
-void firstAutonomous()
+void frontAutonomous()
 {
 	// drivetrain->moveDistance(1_ft);
 	// drivetrain->turnAngle(90_deg);
@@ -80,7 +80,7 @@ void firstAutonomous()
 	// drivetrain->moveRaw(0);
 	// drivetrain->moveDistance(2.4_ft);
 	// intake.moveRelative(720, 200);
-	// pros::delay(1000);
+	// pros::delay(1000s);
 	// drivetrain->turnAngle(100_deg);
 	// drivetrain->moveDistance(2.4_ft);
 	// intake.moveRelative(-360, 200);
@@ -96,16 +96,24 @@ void firstAutonomous()
 	// trapezoidProfile->setTarget("B");
 	// trapezoidProfile->waitUntilSettled();
 	// trapezoidProfile->removePath("B");
-	// intake.moveRelative(800, 200);
-	// drivetrain->getModel()->
-	// rotate(280)
-	// drive(525)
-	// rotate(-280)
-	// drive(100, 50)
-	// intakespit(500)
-	// drive(-100, 50)
-	// rotate(550)
-	// drive(-300, 300)
+	intake.moveRelative(800, 200);
+	left_mtr.moveRelative(700, 200);
+	right_mtr.moveRelative(700, 200);
+	left_mtr.moveRelative(280, 200);
+	right_mtr.moveRelative(-280, 200);
+	left_mtr.moveRelative(525, 200);
+	right_mtr.moveRelative(525, 200);
+	left_mtr.moveRelative(-280, 200);
+	right_mtr.moveRelative(280, 200);
+	left_mtr.moveRelative(100, 100);
+	right_mtr.moveRelative(100, 100);
+	intake.moveRelative(-500, 200);
+	left_mtr.moveRelative(-100, 100);
+	right_mtr.moveRelative(-100, 100);
+	left_mtr.moveRelative(550, 200);
+	right_mtr.moveRelative(-550, 200);
+	left_mtr.moveRelative(-300, 300);
+	right_mtr.moveRelative(-300, 300);
 }
 
 void autonomous()
@@ -124,23 +132,20 @@ void autonomous()
 	{
 	case -2:
 		// Blue Back
-		firstAutonomous();
 		break;
 	case -1:
 		// Blue Front
-		firstAutonomous();
+		frontAutonomous();
 		break;
 	case 0:
 		// Skills
-		firstAutonomous();
 		break;
 	case 1:
 		// Red Front
-		firstAutonomous();
+		frontAutonomous();
 		break;
 	case 2:
 		// Red Back
-		firstAutonomous();
 		break;
 	}
 }
