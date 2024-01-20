@@ -32,7 +32,7 @@ auto drivetrain =
 std::shared_ptr<AsyncMotionProfileController> trapezoidProfile =
     AsyncMotionProfileControllerBuilder()
         .withLimits({
-            1.0, // Maximum linear velocity of the Chassis in m/s
+            0.5, // Maximum linear velocity of the Chassis in m/s
             2.0, // Maximum linear acceleration of the Chassis in m/s/s
             10.0 // Maximum linear jerk of the Chassis in m/s/s/s
         })
