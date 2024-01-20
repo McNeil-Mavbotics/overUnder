@@ -133,6 +133,7 @@ void autonomous()
 	{
 	case -2:
 		// Blue Back
+		frontAutonomous();
 		break;
 	case -1:
 		// Blue Front
@@ -140,6 +141,7 @@ void autonomous()
 		break;
 	case 0:
 		// Skills
+		frontAutonomous();
 		break;
 	case 1:
 		// Red Front
@@ -147,6 +149,7 @@ void autonomous()
 		break;
 	case 2:
 		// Red Back
+		frontAutonomous();
 		break;
 	}
 }
