@@ -13,6 +13,7 @@ void initialize()
 {
 	// Credit: https://github.com/kunwarsahni01/Vex-Autonomous-Selector
 	selector::init();
+	drivetrain->getModel()->setBrakeMode(AbstractMotor::brakeMode::hold);
 }
 
 /**
